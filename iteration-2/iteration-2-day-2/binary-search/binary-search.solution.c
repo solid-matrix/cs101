@@ -15,6 +15,7 @@ int find(int l, int r) {
   } else {
     res = find(m + 1, r);
   }
+  return res;
 }
 
 int main() {
