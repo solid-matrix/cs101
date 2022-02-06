@@ -5,19 +5,20 @@ int n, k;
 int a[10000000];
 
 int find(int l, int r) {
-  if (l > r) return 0;
+  if (l > r) return -1;
   int m = (l + r) / 2;
+  int res;
   if (a[m] == k) {
-    return 1;
+    return m;
   } else if (k < a[m]) {
-    return find(l, m - 1);
+    res = find(l, m - 1);
   } else {
-    return find(m + 1, r);
+    res = find(m + 1, r);
   }
 }
 
 int main() {
   scanf("%d %d", &n, &k);
   for (int i = 0; i < n; i++) scanf("%d", a + i);
-  printf("%s", find(0, n) ? "YES" : "NO");
+  printf("%d\n", find(0, n));
 }
